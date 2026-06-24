@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Chrysa Chatzimeon</title>
+    <title>Dr. Χρύσα Χατζημεών · Οδοντίατρος Χαλάνδρι</title>
+    <link rel="canonical" href="https://www.drchrysachatzimeon.gr/" />
+    <meta property="og:title" content="Dr. Χρύσα Χατζημεών · Οδοντίατρος Χαλάνδρι" />
+    <meta property="og:description" content="Σύγχρονο ιδιωτικό οδοντιατρείο στο Χαλάνδρι. Κλείστε ραντεβού: 210 711 7021." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="el_GR" />
     <style>
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -86,11 +91,12 @@
         h1 { font-size: clamp(48px, 12vw, 82px); }
         h2 { font-size: clamp(40px, 10vw, 78px); }
         .large-img, .doctor-photo { height: clamp(280px, 50vh, 480px); }
-        .photo-main { height: clamp(240px, 45vh, 480px); }
-        .photo-side img { height: clamp(140px, 25vh, 220px); }
-        .photo-strip img { height: clamp(160px, 30vh, 240px); }
-        .medium-img { height: clamp(160px, 25vh, 220px); }
         .doctor-shots img, .rating { height: clamp(140px, 20vh, 200px); }
+        .photo-main { height: clamp(180px, 35vh, 300px); }
+        .photo-side { grid-template-columns: 1fr 1fr; gap: 10px; }
+        .photo-side img { height: clamp(90px, 18vh, 140px); }
+        .photo-strip { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+        .photo-strip img { height: clamp(80px, 15vh, 130px); }
         .service { grid-template-columns: 54px 1fr; }
         .service span { display: none; }
       }
@@ -128,7 +134,7 @@
       <div class="top-inner">
         <a class="address" href="#top">Γυθείου 22, Χαλάνδρι</a>
         <a class="brand" href="#top" aria-label="Dr. Chrysa"><img src="public/tooth-heart.webp" alt="" /></a>
-        <div class="phone"><span>210 000 0000</span><a class="btn" href="#appointment">Κλείσε ραντεβού</a></div>
+        <div class="phone"><span>210 711 7021</span><a class="btn" href="#appointment">Κλείσε ραντεβού</a></div>
       </div>
       <nav class="nav"><a href="#clinic">Ιατρείο</a><a href="#doctor">Γιατρός</a><a href="#services">Υπηρεσίες</a><a href="#appointment">Ραντεβού</a></nav>
     </header>
@@ -262,7 +268,7 @@
           <p><strong>Τελευταία ενημέρωση: 23 Ιουνίου 2026</strong></p>
           <p>Στο οδοντιατρείο της <strong>Dr. Χρύσας Χατζημεών</strong>, σεβόμαστε το απόρρητο των δεδομένων σας. Η παρούσα Πολιτική Απορρήτου εξηγεί πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις προσωπικές σας πληροφορίες σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR).</p>
           <h3>1. Υπεύθυνος Επεξεργασίας</h3>
-          <p>Υπεύθυνος επεξεργασίας των δεδομένων σας είναι η Dr. Χρύσα Χατζημεών, με έδρα τη Γυθείου 22, Χαλάνδρι. Τηλέφωνο επικοινωνίας: 210 000 0000.</p>
+          <p>Υπεύθυνος επεξεργασίας των δεδομένων σας είναι η Dr. Χρύσα Χατζημεών, με έδρα τη Γυθείου 22, Χαλάνδρι. Τηλέφωνο επικοινωνίας: 210 711 7021.</p>
           <h3>2. Δεδομένα που Συλλέγουμε</h3>
           <p>Εάν επικοινωνήσετε μαζί μας ή ζητήσετε ραντεβού, ενδέχεται να συλλέξουμε: Ονοματεπώνυμο, αριθμό τηλεφώνου, διεύθυνση ηλεκτρονικού ταχυδρομείου (email) και πληροφορίες σχετικά με το ιατρικό ιστορικό σας (κατόπιν δικής σας συγκατάθεσης για την παροχή οδοντιατρικής φροντίδας).</p>
           <h3>3. Σκοπός Επεξεργασίας</h3>
@@ -278,7 +284,9 @@
     <script>
       // Cookie Consent Logic
       window.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('cookieBanner').classList.add('active');
+        if (!localStorage.getItem('cookie_consent')) {
+          document.getElementById('cookieBanner').classList.add('active');
+        }
       });
 
       function decideCookies(choice) {

@@ -31,7 +31,7 @@ const reviews = [
 
 export default function App() {
   const [open, setOpen] = useState(false);
-  const [showCookies, setShowCookies] = useState(true);
+  const [showCookies, setShowCookies] = useState(() => !localStorage.getItem('cookie_consent'));
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   return (
@@ -45,8 +45,8 @@ export default function App() {
             <img src="/tooth-heart.webp" alt="Dr. Chrysa tooth heart logo" className="h-[35px] w-[33px] rounded-full object-cover" />
           </a>
           <div className="hidden items-center justify-end gap-5 text-sm font-medium lg:flex col-start-3 justify-self-end">
-            <a href="tel:+302100000000" className="flex items-center gap-2">
-              <Phone size={16} /> 210 000 0000
+            <a href="tel:+302107117021" className="flex items-center gap-2">
+              <Phone size={16} /> 210 711 7021
             </a>
             <a href="#Ραντεβού" className="rounded-full bg-[#2d2d2d] px-5 py-3 text-xs uppercase tracking-[0.18em] text-white">
               Κλείσε ραντεβού
@@ -80,6 +80,13 @@ export default function App() {
               </a>
             ))}
           </div>
+          <a
+            href="#Ραντεβού"
+            onClick={() => setOpen(false)}
+            className="mb-6 flex items-center justify-center gap-3 rounded-full bg-[#2d2d2d] px-7 py-4 text-base font-semibold uppercase tracking-[0.18em] text-white"
+          >
+            Κλείσε ραντεβού <ArrowUpRight size={18} />
+          </a>
         </div>
       )}
 
@@ -132,18 +139,18 @@ export default function App() {
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-            <img src="/clinic-hero.webp" alt="Αίθουσα θεραπείας με οδοντιατρική έδρα" className="h-[300px] md:h-[400px] lg:h-[540px] w-full rounded-[2.2rem] object-cover" />
-            <div className="grid gap-5 sm:grid-cols-2">
-              <img src="/clinic-waiting-blue.webp" alt="Χώρος αναμονής" className="h-[180px] md:h-[220px] lg:h-[260px] w-full rounded-[1.8rem] object-cover" />
-              <img src="/clinic-hall.webp" alt="Υποδοχή και διάδρομος" className="h-[180px] md:h-[220px] lg:h-[260px] w-full rounded-[1.8rem] object-cover" />
-              <img src="/clinic-treatment.webp" alt="Οδοντιατρική θεραπεία" className="h-[180px] md:h-[220px] lg:h-[260px] w-full rounded-[1.8rem] object-cover" />
-              <img src="/clinic-consult.webp" alt="Συζήτηση με ασθενή" className="h-[180px] md:h-[220px] lg:h-[260px] w-full rounded-[1.8rem] object-cover" />
+            <img src="/clinic-hero.webp" alt="Αίθουσα θεραπείας με οδοντιατρική έδρα" className="h-[200px] md:h-[400px] lg:h-[540px] w-full rounded-[2.2rem] object-cover" />
+            <div className="grid grid-cols-2 gap-3 sm:gap-5">
+              <img src="/clinic-waiting-blue.webp" alt="Χώρος αναμονής" className="h-[120px] md:h-[220px] lg:h-[260px] w-full rounded-[1.2rem] sm:rounded-[1.8rem] object-cover" />
+              <img src="/clinic-hall.webp" alt="Υποδοχή και διάδρομος" className="h-[120px] md:h-[220px] lg:h-[260px] w-full rounded-[1.2rem] sm:rounded-[1.8rem] object-cover" />
+              <img src="/clinic-treatment.webp" alt="Οδοντιατρική θεραπεία" className="h-[120px] md:h-[220px] lg:h-[260px] w-full rounded-[1.2rem] sm:rounded-[1.8rem] object-cover" />
+              <img src="/clinic-consult.webp" alt="Συζήτηση με ασθενή" className="h-[120px] md:h-[220px] lg:h-[260px] w-full rounded-[1.2rem] sm:rounded-[1.8rem] object-cover" />
             </div>
           </div>
-          <div className="mt-5 grid gap-5 sm:grid-cols-3">
-            <img src="/clinic-xray.webp" alt="Ψηφιακή ακτινογραφία" className="h-48 md:h-60 lg:h-72 w-full rounded-[1.8rem] object-cover" />
-            <img src="/clinic-lounge.webp" alt="Άνετος χώρος αναμονής" className="h-48 md:h-60 lg:h-72 w-full rounded-[1.8rem] object-cover" />
-            <img src="/chrysa-doctor.webp" alt="Χρύσα Χατζημεών" className="h-48 md:h-60 lg:h-72 w-full rounded-[1.8rem] object-cover object-[50%_20%]" />
+          <div className="mt-3 grid grid-cols-3 gap-3 sm:mt-5 sm:gap-5">
+            <img src="/clinic-xray.webp" alt="Ψηφιακή ακτινογραφία" className="h-24 sm:h-48 md:h-60 lg:h-72 w-full rounded-[1rem] sm:rounded-[1.8rem] object-cover" />
+            <img src="/clinic-lounge.webp" alt="Άνετος χώρος αναμονής" className="h-24 sm:h-48 md:h-60 lg:h-72 w-full rounded-[1rem] sm:rounded-[1.8rem] object-cover" />
+            <img src="/chrysa-doctor.webp" alt="Χρύσα Χατζημεών" className="h-24 sm:h-48 md:h-60 lg:h-72 w-full rounded-[1rem] sm:rounded-[1.8rem] object-cover object-[50%_20%]" />
           </div>
         </div>
       </section>
@@ -352,7 +359,7 @@ export default function App() {
               </p>
               <h3 className="text-base font-semibold text-[#2d2d2d] mt-4">1. Υπεύθυνος Επεξεργασίας</h3>
               <p>
-                Υπεύθυνος επεξεργασίας των δεδομένων σας είναι η Dr. Χρύσα Χατζημεών, με έδρα τη Γυθείου 22, Χαλάνδρι. Τηλέφωνο επικοινωνίας: 210 000 0000.
+                Υπεύθυνος επεξεργασίας των δεδομένων σας είναι η Dr. Χρύσα Χατζημεών, με έδρα τη Γυθείου 22, Χαλάνδρι. Τηλέφωνο επικοινωνίας: 210 711 7021.
               </p>
               <h3 className="text-base font-semibold text-[#2d2d2d] mt-4">2. Δεδομένα που Συλλέγουμε</h3>
               <p>
