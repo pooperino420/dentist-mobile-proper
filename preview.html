@@ -155,20 +155,22 @@
         .script { font-size: .38em; margin: 0 8px; }
         .location { font-size: 11px; margin-bottom: 16px; }
         /* Photo grid: keep 2 columns, much shorter */
-        .photo-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-        .photo-main { height: 160px; border-radius: 16px; grid-column: span 2; }
-        .photo-side { grid-template-columns: 1fr 1fr; gap: 8px; }
-        .photo-side img { height: 100px; border-radius: 14px; }
+        /* Bento photo grid */
+        .photo-grid { grid-template-columns: 1fr; gap: 8px; }
+        .photo-main { height: 180px; border-radius: 16px; width: 100%; }
+        .photo-side { grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+        .photo-side img { height: 120px; border-radius: 14px; width: 100%; }
         .photo-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
-        .photo-strip img { height: 90px; border-radius: 14px; }
+        .photo-strip img { height: 100px; border-radius: 14px; width: 100%; }
+        .photo-proof { padding-bottom: 40px; }
         .photo-proof-head { margin-bottom: 16px; }
         .photo-proof-head p { font-size: 15px; }
-        /* Gallery images compact */
-        .gallery { gap: 8px; }
-        .large-img { height: 180px; border-radius: 20px; }
-        .medium-img { height: 120px; border-radius: 16px; }
+        /* Gallery bento */
+        .gallery { grid-template-columns: 1fr; gap: 8px; }
+        .large-img { height: 180px; border-radius: 20px; width: 100%; }
+        .medium-img { height: 130px; border-radius: 16px; width: 100%; }
         .two { grid-template-columns: 1fr 1fr; gap: 8px; }
-        .gallery img { border-radius: 20px; }
+        .gallery img { border-radius: 20px; width: 100%; }
         /* Cards */
         .cards { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
         .card { padding: 24px; border-radius: 24px; }
